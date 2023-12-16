@@ -12,7 +12,8 @@ const password = process.env.DB_PASSWORD || '';
 const DB = new sequelize_1.Sequelize(database, user, password, {
     host: 'localhost',
     dialect: 'mysql',
-    logging: false
+    logging: false,
+    port: 36012
 });
 exports.default = DB;
 //# sourceMappingURL=config.js.map
