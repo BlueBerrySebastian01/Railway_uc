@@ -6,11 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const database = process.env.DB_NAME || '';
-const user = process.env.DB_USER || '';
-const password = process.env.DB_PASSWORD || '';
+const database = 'railway'
+const user ='root'
+const password = '5ceC3b4cB5b6eC54Dfe2d-c365AGF346'
+
+
 const DB = new sequelize_1.Sequelize(database, user, password, {
-    host: 'localhost',
+    host: 'roundhouse.proxy.rlwy.net',
     dialect: 'mysql',
     logging: false,
     port: 36012
