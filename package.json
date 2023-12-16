@@ -8,7 +8,7 @@
     "dev": "nodemon App.ts ",
     "start": "node App.js",
     "tsc": "tsc",
-    "build": "tsc"
+    "build": "tsc && npm install"
   },
   "keywords": [],
   "author": "",
