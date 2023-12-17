@@ -81,11 +81,12 @@ const updateContact = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const { id } = req.params;
         const body = req.body;
+        // console.log(body)
         const fieldsUpdate = {};
         const objectAttributes = {
             "Grado": "prefix",
             "Nombre": "name",
-            "Puesto": "Job",
+            "Puesto": "job",
             "Ext": "extension",
             "Correo": "email",
             "Publico": "public",
@@ -93,7 +94,12 @@ const updateContact = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         Object.entries(body).forEach(([key, value]) => {
             const mappedKey = objectAttributes[key];
             if (mappedKey) {
-                fieldsUpdate[mappedKey] = value;
+                if (mappedKey == 'public') {
+                    fieldsUpdate[mappedKey] = (value == '0' ? false : true);
+                }
+                else {
+                    fieldsUpdate[mappedKey] = value;
+                }
             }
         });
         const updated = yield directory_1.default.update(fieldsUpdate, { where: { id } });
