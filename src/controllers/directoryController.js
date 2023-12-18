@@ -81,7 +81,6 @@ const updateContact = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         const { id } = req.params;
         const body = req.body;
-        // console.log(body)
         const fieldsUpdate = {};
         const objectAttributes = {
             "Grado": "prefix",

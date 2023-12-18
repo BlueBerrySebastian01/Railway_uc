@@ -60,6 +60,21 @@ const getSections = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 exports.getSections = getSections;
 const getSection = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        const { id } = req.params;
+        const sections = yield sections_1.default.findAll({
+            where: {
+                id_workshop: id
+            },
+            attributes: [
+                ['id', 'ID'],
+                ['name', 'Nombre'],
+                ['title', 'Titulo'],
+                ['image', 'Imagen'],
+                ['content', 'Contenido'],
+            ],
+        });
+        console.log(sections);
+        res.json(sections);
     }
     catch (error) {
         res.status(500).json({ status: 500, message: '', devTool: error.message });
@@ -154,7 +169,6 @@ exports.updateSections = updateSections;
 const removeSections = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        console.log(id);
         const response = yield sections_1.default.destroy({ where: { id } });
         if (response > 0) {
             res.json({

@@ -141,7 +141,6 @@ const generalInfo = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     try {
         const { title, type, level, category, duration, modality, start, RVOE, crm, status } = req.body;
         const { id } = req.params;
-        console.log(status);
         const result = yield general_1.default.findOne({
             where: {
                 id_offer: id,
@@ -267,7 +266,6 @@ const GetgeneralInfo = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.GetgeneralInfo = GetgeneralInfo;
 const ContentOfferAcademic = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    console.log(req.body);
     const result = yield content_1.default.findOne({
         where: {
             id_offer: id,

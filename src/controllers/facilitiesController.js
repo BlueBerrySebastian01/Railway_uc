@@ -50,7 +50,7 @@ const getFacilities = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             attributes: [
                 ['id', 'ID'],
                 // [Sequelize.literal('User.name'), 'Usuario'],
-                ['name', 'Usuario'],
+                ['name', 'Nombre'],
                 ['card_background', 'Caratula'],
                 ['title', 'Titulo Banner'],
                 ['background', 'Banner'],
@@ -67,7 +67,6 @@ exports.getFacilities = getFacilities;
 const getFacility = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        console.log(id);
         const facility = yield facilities_1.default.findByPk(id, {});
         res.json(facility);
     }
@@ -173,7 +172,6 @@ exports.updateFacility = updateFacility;
 const removeFacility = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        console.log(id);
         const response = yield facilities_1.default.destroy({ where: { id } });
         if (response > 0) {
             res.json({

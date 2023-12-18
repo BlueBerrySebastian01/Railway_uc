@@ -51,7 +51,6 @@ const getGalery = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 ['image', 'Imagen'],
             ]
         });
-        console.log(galery);
         res.json(galery);
     }
     catch (error) {
@@ -173,7 +172,6 @@ exports.updateImage = updateImage;
 const removeImage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
-        console.log(id);
         const response = yield facilities_galery_1.default.destroy({ where: { id } });
         if (response > 0) {
             res.json({
