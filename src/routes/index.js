@@ -14,6 +14,9 @@ router.get('/index-galery/get/:id', indexGaleryController_1.getIndexGalery);
 router.put('/index-galery/update/:id', upload.fields([
     { name: 'video_loop', maxCount: 1 },
 ]), indexGaleryController_1.addIndex);
+router.put('/index-galery/update/galery/:id', upload.fields([
+    { name: 'image', maxCount: 1 },
+]), indexGaleryController_1.updateImage);
 router.post('/index-galery/add/:id', upload.fields([
     { name: 'image', maxCount: 1 },
 ]), indexGaleryController_1.addIndex);

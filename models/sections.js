@@ -42,7 +42,7 @@ Section.init({
         allowNull: false
     },
     content: {
-        type: sequelize_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.TEXT,
         allowNull: false
     }
 }, {

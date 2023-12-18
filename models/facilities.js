@@ -46,7 +46,7 @@ Facilities.init({
         allowNull: false,
     },
     about_it: {
-        type: sequelize_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.TEXT,
         allowNull: false,
     },
 }, {

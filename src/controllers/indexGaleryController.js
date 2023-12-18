@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteIndexGalery = exports.addIndexGalery = exports.addIndex = exports.getIndexGalery = exports.getIndex = void 0;
+exports.updateImage = exports.deleteIndexGalery = exports.addIndexGalery = exports.addIndex = exports.getIndexGalery = exports.getIndex = void 0;
 const models_1 = __importDefault(require("../../models"));
 const index_galery_1 = __importDefault(require("../../models/index_galery"));
 const fs = require('fs');
@@ -134,4 +134,28 @@ const deleteIndexGalery = (req, res) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.deleteIndexGalery = deleteIndexGalery;
+const updateImage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const { alt_image, key_video, image } = req.body;
+        const files = req.files;
+        const imageData = files['image'] ? files['image'][0] : undefined;
+        const serverUrl = `${req.protocol}://${req.get('host')}`;
+        const body = {
+            image: imageData ? `${serverUrl}/storage/${imageData.filename}` : image,
+            alt_image: alt_image,
+            key_video: key_video,
+        };
+        const IndexGalery = yield index_galery_1.default.update(body, {
+            where: { id: id },
+        });
+        console.log(body);
+        res.json({ status: 200 });
+    }
+    catch (error) {
+        res.status(500).json({ status: 500, message: '', devTool: error.message });
+        console.log(error);
+    }
+});
+exports.updateImage = updateImage;
 //# sourceMappingURL=indexGaleryController.js.map
