@@ -26,8 +26,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const loginController_1 = require("../controllers/loginController");
 const authController = __importStar(require("../controllers/loginController"));
+const downloadStorage_1 = require("../controllers/downloadStorage");
 const router = (0, express_1.Router)();
 router.get('/login', loginController_1.index);
 router.post('/login-user', authController.authenticate());
+router.get('/saveStorage', downloadStorage_1.saveStorage);
 module.exports = router;
 //# sourceMappingURL=login.js.map
